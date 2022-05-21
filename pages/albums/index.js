@@ -7,7 +7,7 @@ import Paragraph from "../../components/Paragraph";
 
 
 import { getAlbums } from "../../lib/api";
-
+ 
 import { Link } from "react-router-dom";
 
 export async function getStaticProps() {
