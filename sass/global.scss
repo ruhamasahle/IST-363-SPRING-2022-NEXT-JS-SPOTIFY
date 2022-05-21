@@ -1,0 +1,58 @@
+@use './abstracts/vars';
+@use './abstracts/mixins';
+@use './vendor';
+
+
+// typographic reset
+h1, h2, h3, h4, h5, ul, li{
+    margin:0;
+    padding: auto;
+    font: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+*{
+    box-sizing: border-box;
+    // padding is forced to take up internal space not expand the 
+}
+
+body{
+    background-color: vars.$color_orange;
+    color: vars.$color_blue;
+    font-family:vars.$font_primary;
+    min-height:100%;
+    @include mixins.breakpoint(tablet){
+        background-color: yellow
+    };
+    @include mixins.breakpoint(mobile){
+        background-color: red
+    };
+}
+
+h1{
+    font-family: vars.$font-primary;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: vars.$color_blue;
+    font-size: 2rem;
+    @include mixins.breakpoint(tablet){
+        font-size: 2.5rem;
+        margin-bottom: 1.25rem;
+
+    }
+}
+// similar to javascript if-statements. condition in the brackets are what are being checked.
+
+@media (min-width: 700px) {
+    body {
+        background-color: aqua;
+    }
+}
+@media (min-width: 1000px) {
+    body {
+        background-color: pink;
+    }
+}

@@ -1,0 +1,56 @@
+@mixin buildFont($font, $size, $color){
+    font-family: Arial;
+    font-size: 48px ;
+    color:brown;
+}
+
+// define breakpoint as a function
+@mixin breakpoint($value) {
+	// need to validate $value
+
+	// if it is a string use standard breakpoints
+	@if type-of($value) == 'string' {
+		@if ($value == "xs" or $value == "phone") {
+			@media (max-width: 699px) {
+				// content is the info that you have added on base.scss where under
+                // normal media query you would add the info for what you have changed.
+                @content;
+			}
+		}
+		@else if ($value == "sm" or $value == "tablet") {
+			@media (min-width: 700px) {
+				@content;
+			}
+		}
+
+		@else if ($value == "md" or $value == "laptop") {
+			@media(min-width: 980px) {
+				@content;
+			}
+		}
+		@else if($value == "lg" or $value == "desktop") {
+			@media (min-width: 1140px) {
+				@content;
+			}
+		}
+
+		@else {
+			@warn "Breakpoint mixin supports: xs or phone, sm or tablet, md or laptop, lg or desktop, xl or tvscreen as string variables";
+		}
+
+	} 
+	// if value then use value as minimum width.
+	@else if is-length($value){
+		@media(min-width: #{$value}){
+			@content;
+		}
+	}
+
+	@else {
+		@warn "Breakpoint mixin supports: string variables or relative units";
+	}
+	// if a length value than use that
+
+	// error warn if string does not match or it is not a length
+	
+}

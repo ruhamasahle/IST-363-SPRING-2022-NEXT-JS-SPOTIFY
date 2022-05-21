@@ -1,0 +1,30 @@
+@use '../sass/abstracts/mixins.scss';
+
+.container {
+    // background-color: teal;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    &.full{
+        width: 100%;
+        .row{
+            margin-left: 0; 
+            margin-right: 0; 
+        }
+    }
+    @include mixins.breakpoint(tablet) {
+       
+        // background-color: palegoldenrod;
+        width: 90;
+        margin: 0 auto;
+    }
+    @include mixins.breakpoint(laptop) {
+        // background-color: lightblue;
+        width: 960;
+        margin: 0 auto;
+    }
+    @include mixins.breakpoint(desktop) {
+        width: 1140;
+    }
+    
+}

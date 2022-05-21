@@ -1,0 +1,16 @@
+.navOverlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    padding: 1rem;
+    z-index: 10000;
+    color: white; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // flex-direction: column
+};

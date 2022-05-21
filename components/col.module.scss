@@ -1,0 +1,28 @@
+@use '../sass/abstracts/mixins';
+
+$sizes: xs, sm, md, lg;
+$textAlignments: left, center, right;
+
+.col {
+    // background-color: aqua;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction:row ;
+    @each $size in $sizes {
+        @include mixins.breakpoint($size){
+            @for $i from 1 through 12 {
+                &.col-#{$size}-#{$i}{
+                    width: calc(100% * (#{$i}/12));
+                }
+            }
+        }
+    }
+    @each $textAlignment in $textAlignments{
+        &.text-align-#{$textAlignment}{
+            text-align: $textAlignment;
+        }
+    }
+
+}

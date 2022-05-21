@@ -1,0 +1,24 @@
+@use '../sass/abstracts/mixins.scss';
+
+.heading {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    &.heading1{
+        font-size: 6rem;
+        @include mixins.breakpoint(tablet){
+            font-size: 1.1;
+        }
+    }
+    &.heading2{
+        font-size: 3rem;
+        @include mixins.breakpoint(laptop){
+            font-size: 4rem;
+        }
+    }
+    &.heading3{
+        font-size: 1.5rem;
+        @include mixins.breakpoint(desktop){
+            font-size: 4.5rem;
+        }
+    }
+}

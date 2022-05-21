@@ -1,0 +1,29 @@
+@use '../sass/abstracts/vars.scss';
+@use '../sass/abstracts/mixins.scss';
+.nav{
+    display: none;
+    @include mixins.breakpoint(sm){
+        display: block;
+    }
+    &.mobile{
+        display: block;
+    }
+    .list{
+        display: flex;
+        &.flex-direction-column{
+        flex-direction: column;}
+        .listItem{
+            font-family: vars.$font_primary;
+            font-weight: bold;
+            .link {
+                color: white;
+                text-decoration: none;
+                // default: words are in-line block and area s big as the text but
+                // display blocks makes it as big as the padding.
+                padding: 1rem;
+                display: block;
+            }
+        }
+    }
+
+}
