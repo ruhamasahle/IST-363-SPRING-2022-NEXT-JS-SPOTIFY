@@ -14,9 +14,10 @@ export async function getStaticPaths() {
     }
 }
 
+
 // 2
 export async function getStaticProps({ params }) {
-    const albumData = JSON.stringify(getSingleAlbumData(params.id))
+    const albumData = getSingleAlbumData(params.id)
     return {
         props: {
             albumData
@@ -32,7 +33,6 @@ const SingleAlbumPage = ({ albumData }) => {
     const { sourceUrl, altText, mediaDetails } = featuredImage.node;
     const { year, songsToAlbums } = albumInformation
     return <Layout>
-
         <Image
             src={sourceUrl}
             alt={altText}
@@ -42,23 +42,25 @@ const SingleAlbumPage = ({ albumData }) => {
 
         <Heading level='1'>{title}</Heading>
         <Heading level='2'>{year}</Heading>
-        {artistToAlbums.map((artist,index)=>{
+        {artistToAlbums.map((artist, index) => {
             return <Heading level='2'>
                 <Link href={`/artists/${slug}`}>
-                <a>
-                {title}
-                </a></Link>
+                    <a>
+                        {title}
+                    </a></Link>
             </Heading>
         })}
         <section>
             <Heading level="2">Songs</Heading>
-            {songsToAlbums.map((song, index) => {
-                const { title } = song;
-                return <Col key={index} xs="12" sm="12">
-                    <Heading level='3'>{title}</Heading>
-                    <Heading level='3'>{year}</Heading>
-                </Col>
-            })}
+            <Row>
+                {songsToAlbums.map((song, index) => {
+                    const { title } = song;
+                    return <Col key={index} xs="12" sm="12">
+                        <Heading level='3'>{title}</Heading>
+                        <Heading level='3'>{year}</Heading>
+                    </Col>
+                })}
+            </Row>
         </section>
     </Layout>
 }
